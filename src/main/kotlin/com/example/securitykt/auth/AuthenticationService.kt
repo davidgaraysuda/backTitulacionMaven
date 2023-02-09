@@ -30,7 +30,7 @@ class AuthenticationService {
             lastname=request.lastname
             email=request.email
             password1= passwordEncoder?.encode(request.password)
-            role= Role.USER
+            role= request.role
 
         }
 
@@ -45,8 +45,8 @@ class AuthenticationService {
     fun authenticate(request: AuthenticationRequest): AuthenticationResponse? {
         authenticationManager!!.authenticate(
             UsernamePasswordAuthenticationToken(
-                "marco@g.com",
-                "abc123"
+                request.email,
+                request.password
             )
         )
         val user = repository?.findByEmail(request.email)?.orElseThrow()
