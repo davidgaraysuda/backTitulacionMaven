@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS users(
     firstname VARCHAR(50),
     lastname VARCHAR(50),
     email VARCHAR(50),
-    password1 VARCHAR(250),
+    password VARCHAR(250),
     role VARCHAR(50),
     PRIMARY KEY (id)
 );

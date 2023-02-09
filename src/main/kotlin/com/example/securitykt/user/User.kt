@@ -16,6 +16,7 @@ class User  : UserDetails {
     var firstname: String? = null
     var lastname: String? = null
     var email: String? = null
+    @Column(name="password")
     var password1: String? = null
 
     @Enumerated(EnumType.STRING)

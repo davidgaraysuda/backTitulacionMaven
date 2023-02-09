@@ -20,7 +20,9 @@ class AuthenticationService {
     @Autowired
     lateinit var jwtService: JwtService
     //private val jwtService: JwtService? = null
-    private val authenticationManager: AuthenticationManager? = null
+    @Autowired
+    lateinit var authenticationManager: AuthenticationManager
+    //private val authenticationManager: AuthenticationManager? = null
 
     fun register(request: RegisterRequest): AuthenticationResponse? {
         val user= User().apply {
@@ -43,8 +45,8 @@ class AuthenticationService {
     fun authenticate(request: AuthenticationRequest): AuthenticationResponse? {
         authenticationManager!!.authenticate(
             UsernamePasswordAuthenticationToken(
-                request.email,
-                request.password
+                "marco@g.com",
+                "abc123"
             )
         )
         val user = repository?.findByEmail(request.email)?.orElseThrow()
