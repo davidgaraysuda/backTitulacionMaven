@@ -34,8 +34,8 @@ class AuthenticationService {
 
         }
 
-        repository?.save(user)
-        val jwtToken = jwtService?.generateToken(user)
+        repository.save(user)
+        val jwtToken = jwtService.generateToken(user,user.role)
         return AuthenticationResponse().apply {
             token=jwtToken
         }
@@ -43,14 +43,14 @@ class AuthenticationService {
     }
 
     fun authenticate(request: AuthenticationRequest): AuthenticationResponse? {
-        authenticationManager!!.authenticate(
+        authenticationManager.authenticate(
             UsernamePasswordAuthenticationToken(
                 request.email,
                 request.password
             )
         )
-        val user = repository?.findByEmail(request.email)?.orElseThrow()
-        val jwtToken: String? = user?.let { jwtService?.generateToken(it) }
+        val user = repository.findByEmail(request.email)?.orElseThrow()
+        val jwtToken: String? = user?.let { jwtService.generateToken(it,user.role) }
         return AuthenticationResponse().apply {
             token=jwtToken
         }

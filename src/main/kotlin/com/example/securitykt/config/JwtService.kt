@@ -1,5 +1,7 @@
 package com.example.securitykt.config
 
+import com.example.securitykt.user.Role
+import com.example.securitykt.user.User
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
@@ -25,7 +27,9 @@ class JwtService {
         return claimsResolver.apply(claims)
     }
 
-    fun generateToken(userDetails: UserDetails): String? {
+    fun generateToken(userDetails: UserDetails,role:Role?): String? {
+        val hashMap:HashMap<String?,Any?> = HashMap<String?,Any?>()
+        hashMap["roles"] = role?.name
         return generateToken(HashMap(), userDetails)
     }
 
