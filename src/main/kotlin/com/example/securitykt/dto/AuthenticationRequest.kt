@@ -1,4 +1,4 @@
-package com.example.securitykt.auth
+package com.example.securitykt.dto
 
 class AuthenticationRequest {
     var email: String? = null

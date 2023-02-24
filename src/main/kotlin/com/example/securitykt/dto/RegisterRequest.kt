@@ -1,6 +1,6 @@
-package com.example.securitykt.auth
+package com.example.securitykt.dto
 
-import com.example.securitykt.user.Role
+import com.example.securitykt.model.Role
 
 class RegisterRequest {
     var firstname: String? = null

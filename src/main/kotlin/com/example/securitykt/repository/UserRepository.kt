@@ -1,5 +1,6 @@
-package com.example.securitykt.user
+package com.example.securitykt.repository
 
+import com.example.securitykt.model.User
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 import java.util.*

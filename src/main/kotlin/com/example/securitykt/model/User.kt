@@ -1,4 +1,4 @@
-package com.example.securitykt.user
+package com.example.securitykt.model
 
 import jakarta.persistence.*
 import org.springframework.security.core.GrantedAuthority

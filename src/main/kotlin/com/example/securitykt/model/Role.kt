@@ -1,4 +1,4 @@
-package com.example.securitykt.user
+package com.example.securitykt.model
 
 enum class Role {
     USER,

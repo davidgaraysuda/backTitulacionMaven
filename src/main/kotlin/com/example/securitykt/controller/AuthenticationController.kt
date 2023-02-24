@@ -1,5 +1,9 @@
-package com.example.securitykt.auth
+package com.example.securitykt.controller
 
+import com.example.securitykt.dto.AuthenticationRequest
+import com.example.securitykt.dto.AuthenticationResponse
+import com.example.securitykt.service.AuthenticationService
+import com.example.securitykt.dto.RegisterRequest
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
