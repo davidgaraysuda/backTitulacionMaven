@@ -17,7 +17,6 @@ import org.springframework.security.crypto.password.PasswordEncoder
 class ApplicationConfig {
     @Autowired
     lateinit var repository: UserRepository
-    //private val repository: UserRepository? = null
 
     @Bean
     fun userDetailsService(): UserDetailsService? {
