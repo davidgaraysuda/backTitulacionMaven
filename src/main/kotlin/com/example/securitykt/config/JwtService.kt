@@ -27,9 +27,8 @@ class JwtService {
     }
 
     fun generateToken(userDetails: UserDetails,role: Role?): String? {
-        val hashMap:HashMap<String?,Any?> = HashMap<String?,Any?>()
-        hashMap["roles"] = role?.name
-        return generateToken(HashMap(), userDetails)
+
+        return generateToken(mapOf("roles" to role?.name), userDetails)
     }
 
     fun generateToken(
