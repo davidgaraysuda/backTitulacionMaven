@@ -25,6 +25,7 @@ class SecurityConfiguration {
     @Throws(Exception::class)
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain? {
         http
+            .cors().and()
             .csrf()
             .disable()
             .authorizeHttpRequests()
