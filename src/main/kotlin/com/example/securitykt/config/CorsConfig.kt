@@ -1,6 +1,8 @@
 package com.example.securitykt.config
 
 import org.springframework.context.annotation.Bean
+import org.springframework.security.config.web.server.ServerHttpSecurity
+import org.springframework.security.web.server.SecurityWebFilterChain
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
@@ -14,9 +16,10 @@ class CorsConfig {
             "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
         configuration.allowCredentials = true
         configuration.allowedHeaders = listOf("*")
-        configuration.exposedHeaders = listOf("X-Auth-Token", "Authorization", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
+        configuration.exposedHeaders = listOf("*")
         val source = UrlBasedCorsConfigurationSource()
         source.registerCorsConfiguration("/**", configuration)
         return source
     }
+
 }
