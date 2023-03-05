@@ -4,8 +4,8 @@ import com.example.securitykt.dto.AuthenticationRequest
 import com.example.securitykt.dto.AuthenticationResponse
 import com.example.securitykt.dto.RegisterRequest
 import com.example.securitykt.config.JwtService
-import com.example.securitykt.model.User
-import com.example.securitykt.repository.UserRepository
+import com.example.securitykt.model.UserAuth
+import com.example.securitykt.repository.UserAuthRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service
 @Service
 class AuthenticationService {
     @Autowired
-    lateinit var repository: UserRepository
+    lateinit var repository: UserAuthRepository
 //    private val repository: UserRepository? = null
 @Autowired
     private val passwordEncoder: PasswordEncoder? = null
@@ -27,7 +27,7 @@ class AuthenticationService {
     //private val authenticationManager: AuthenticationManager? = null
 
     fun register(request: RegisterRequest): AuthenticationResponse? {
-        val user= User().apply {
+        val userAuth= UserAuth().apply {
             firstname= request.firstname
             lastname=request.lastname
             email=request.email
@@ -36,8 +36,8 @@ class AuthenticationService {
 
         }
 
-        repository.save(user)
-        val jwtToken = jwtService.generateToken(user,user.role)
+        repository.save(userAuth)
+        val jwtToken = jwtService.generateToken(userAuth,userAuth.role)
         return AuthenticationResponse().apply {
             token=jwtToken
         }
