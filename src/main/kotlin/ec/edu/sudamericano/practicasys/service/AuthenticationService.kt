@@ -47,17 +47,17 @@ class AuthenticationService {
 
     }
 
-        fun authenticate(request: AuthenticationRequest): AuthenticationResponse? {
-            authenticationManager.authenticate(
-                UsernamePasswordAuthenticationToken(
-                    request.email,
-                    request.password
-                )
+    fun authenticate(request: AuthenticationRequest): AuthenticationResponse? {
+        authenticationManager.authenticate(
+            UsernamePasswordAuthenticationToken(
+                request.email,
+                request.password
             )
-            val user = repository.findByEmail(request.email)?.orElseThrow()
-            val jwtToken: String? = user?.let { jwtService.generateToken(it, user.role) }
-            return AuthenticationResponse().apply {
-                token = jwtToken
-            }
+        )
+        val user = repository.findByEmail(request.email)?.orElseThrow()
+        val jwtToken: String? = user?.let { jwtService.generateToken(it, user.role) }
+        return AuthenticationResponse().apply {
+            token = jwtToken
         }
     }
+}
