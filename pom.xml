@@ -8,11 +8,11 @@
 		<version>3.0.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>securitykt</artifactId>
+	<groupId>ec.edu.sudamericano</groupId>
+	<artifactId>practicasys</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>securitykt</name>
-	<description>securitykt</description>
+	<name>practicasys</name>
+	<description>practicasys</description>
 	<properties>
 		<java.version>17</java.version>
 		<kotlin.version>1.7.22</kotlin.version>
