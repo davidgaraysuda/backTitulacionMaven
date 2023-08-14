@@ -16,7 +16,7 @@ class Student {
     var phone:String? = null
     @Column(name="career_id")
     var careerId: Long? = null
-
-
+    @Column(name = "user_id")
+    var userId: Long? = null
 
 }

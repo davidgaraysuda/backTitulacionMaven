@@ -16,6 +16,8 @@ class Tutor {
     var isMain:Boolean?=null
     @Column(name = "company_id")
     var companyId: Long? = null
+    @Column(name = "user_id")
+    var userId: Long? = null
     @Column(name="tu_status")
     var tuStatus:Boolean? = null
 
